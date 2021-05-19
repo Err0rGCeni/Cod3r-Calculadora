@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
+import { colorsDefault, colorsCyberpunk, colorsSteampunk } from './src/colors'
 import {Platform, StyleSheet, Text, View} from 'react-native'
 import Button from './src/components/Button'
 import Display from './src/components/Display'
+
+const theme = colorsSteampunk
 
 const initialState = {
   displayValue: '0',
@@ -88,8 +91,8 @@ export default class App extends Component {
   render() {
     return(
       <View style={styles.container}>
-        <Display value={this.state.displayValue} />
-        <View style={styles.buttons}>
+        <Display value={this.state.displayValue} theme={theme}/>
+        <View style={styles.buttons} theme={theme}>
           <Button label='AC' triple onClick={this.clearMemory}/>
           <Button label='/' operation onClick={this.setOperation} />
           <Button label='7' onClick={this.addDigit} />

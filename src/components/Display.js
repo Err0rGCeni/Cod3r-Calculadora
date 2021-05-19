@@ -1,23 +1,13 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-
-const styles = StyleSheet.create({
-    display: {
-        flex: 1,
-        padding: 20,
-        justifyContent: 'center',
-        backgroundColor: 'rgba(0,0,0,0.6)',
-        alignItems: 'flex-end',
-    },
-    displayValue: {
-        fontSize: 60,
-        color: '#fff',
-    }
-})
+//import { StyleSheet, Text, View } from 'react-native'
+import { ThemeProvider } from 'styled-components'
+import { ViewDisplay, TextDisplay } from '../styles'
 
 export default props =>
-<View style={styles.display}>
-    <Text style={styles.displayValue} numberOfLines={1}>
-        {props.value}
-    </Text>
-</View>
+    <ThemeProvider theme={props.theme}>
+        <ViewDisplay>
+            <TextDisplay numberOfLines={1}>
+                {props.value}
+            </TextDisplay>
+        </ViewDisplay>
+    </ThemeProvider>
